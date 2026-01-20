@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Ole Behrens - Persönliches Profil">
+    <title>Ole Behrens - Profil</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 60px 20px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .profile-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 60px;
+            color: white;
+            font-weight: bold;
+            border: 5px solid white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            color: #2c3e50;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: #7f8c8d;
+            font-size: 1.2em;
+            margin-bottom: 20px;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .social-links a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 8px 16px;
+            border: 2px solid #667eea;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: #667eea;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        section {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        h2 {
+            color: #2c3e50;
+            font-size: 2em;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+        }
+
+        .about-text {
+            color: #555;
+            font-size: 1.1em;
+            line-height: 1.8;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .skill-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            border-radius: 10px;
+            color: white;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .skill-card h3 {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
+        }
+
+        .project-card {
+            background: white;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            padding: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .project-card:hover {
+            border-color: #667eea;
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.3);
+            transform: translateY(-5px);
+        }
+
+        .project-card h3 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .project-card p {
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .project-link {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 500;
+            display: inline-block;
+            padding: 8px 16px;
+            border: 2px solid #667eea;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .project-link:hover {
+            background: #667eea;
+            color: white;
+        }
+
+        .contact-info {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .contact-info p {
+            color: #555;
+            font-size: 1.1em;
+            margin-bottom: 15px;
+        }
+
+        .contact-button {
+            display: inline-block;
+            padding: 15px 40px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 1.1em;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .contact-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.5);
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px 20px;
+            color: white;
+            font-size: 0.9em;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+
+            section {
+                padding: 25px;
+            }
+
+            .skills-grid,
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="profile-image">OB</div>
+            <h1>Ole Behrens</h1>
+            <p class="subtitle">Entwickler & Technologie-Enthusiast</p>
+            <div class="social-links">
+                <a href="https://github.com/OleBehrensHmmh" target="_blank">GitHub</a>
+                <a href="https://linkedin.com" target="_blank">LinkedIn</a>
+                <a href="https://twitter.com" target="_blank">Twitter</a>
+            </div>
+        </header>
+
+        <section id="about">
+            <h2>Über mich</h2>
+            <p class="about-text">
+                Hallo! Ich bin Ole Behrens, ein leidenschaftlicher Entwickler mit Interesse an 
+                modernen Webtechnologien und innovativen Lösungen. Ich liebe es, komplexe Probleme 
+                zu lösen und elegante, benutzerfreundliche Anwendungen zu entwickeln. Mein Fokus 
+                liegt auf der kontinuierlichen Verbesserung meiner Fähigkeiten und dem Lernen 
+                neuer Technologien.
+            </p>
+        </section>
+
+        <section id="skills">
+            <h2>Fähigkeiten</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <h3>💻 Frontend</h3>
+                    <p>HTML, CSS, JavaScript, React</p>
+                </div>
+                <div class="skill-card">
+                    <h3>⚙️ Backend</h3>
+                    <p>Node.js, Python, Datenbanken</p>
+                </div>
+                <div class="skill-card">
+                    <h3>🛠️ Tools</h3>
+                    <p>Git, VS Code, Docker</p>
+                </div>
+                <div class="skill-card">
+                    <h3>☁️ Cloud</h3>
+                    <p>AWS, Azure, CI/CD</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects">
+            <h2>Projekte</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <h3>🚀 Projekt 1</h3>
+                    <p>Eine innovative Webanwendung mit modernem Design und leistungsstarker Funktionalität.</p>
+                    <a href="#" class="project-link">Mehr erfahren →</a>
+                </div>
+                <div class="project-card">
+                    <h3>🎨 Projekt 2</h3>
+                    <p>Ein kreatives Tool zur Verbesserung der Produktivität und Zusammenarbeit im Team.</p>
+                    <a href="#" class="project-link">Mehr erfahren →</a>
+                </div>
+                <div class="project-card">
+                    <h3>🔧 Projekt 3</h3>
+                    <p>Open-Source-Beitrag zur Verbesserung einer beliebten Entwicklerbibliothek.</p>
+                    <a href="#" class="project-link">Mehr erfahren →</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2>Kontakt</h2>
+            <div class="contact-info">
+                <p>Interessiert an einer Zusammenarbeit? Lassen Sie uns in Kontakt treten!</p>
+                <a href="mailto:kontakt@example.com" class="contact-button">Kontakt aufnehmen</a>
+            </div>
+        </section>
+
+        <footer>
+            <p>&copy; 2024 Ole Behrens. Alle Rechte vorbehalten.</p>
+        </footer>
+    </div>
+</body>
+</html>
